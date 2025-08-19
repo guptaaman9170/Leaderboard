@@ -1,4 +1,4 @@
-import { Trophy, Crown } from "lucide-react";
+import { Trophy } from "lucide-react";
 
 export default function Leaderboard({ data }) {
   const top = data.slice(0, 3);
@@ -14,7 +14,7 @@ export default function Leaderboard({ data }) {
   const podiumOrder = [top[1], top[0], top[2]].filter(Boolean);
 
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="max-w-4xl mx-auto p-6">
       {/* Podium */}
       <div className="flex justify-center items-end gap-6 mb-12">
         {podiumOrder.map((u) => (
@@ -22,16 +22,15 @@ export default function Leaderboard({ data }) {
             key={u._id}
             className={`relative flex flex-col items-center bg-gradient-to-b ${
               bands[u.rank] || "from-gray-200 to-gray-400"
-            } p-4 rounded-xl shadow-xl transition transform hover:scale-105 ${
-              u.rank === 1 ? "w-32 md:w-48 scale-110 z-10" : "w-24 md:w-36"
-            }`}
+            } p-4 rounded-xl shadow-xl transition transform hover:scale-105
+              ${u.rank === 1 ? "w-32 md:w-48 scale-110 z-10" : "w-28 md:w-40"}
+            `}
           >
-
             {/* Profile circle with trophy */}
             <div
-              className={`rounded-full bg-white flex items-center justify-center shadow-lg mb-2 ${
-                u.rank === 1 ? "w-20 h-20 md:w-24 md:h-24" : "w-16 h-16 md:w-20 md:h-20"
-              }`}
+              className={`rounded-full bg-white flex items-center justify-center shadow-lg mb-2
+                ${u.rank === 1 ? "w-20 h-20 md:w-24 md:h-24" : "w-16 h-16 md:w-20 md:h-20"}
+              `}
             >
               <Trophy
                 className={`${
@@ -58,7 +57,7 @@ export default function Leaderboard({ data }) {
         ))}
       </div>
 
-      {/* Table */}
+      {/* Leaderboard table */}
       <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
         <table className="w-full text-left">
           <thead className="bg-orange-100">
@@ -70,7 +69,10 @@ export default function Leaderboard({ data }) {
           </thead>
           <tbody>
             {rest.map((u) => (
-              <tr key={u._id} className="border-t hover:bg-orange-50 transition">
+              <tr
+                key={u._id}
+                className="border-t hover:bg-orange-50 transition"
+              >
                 <td className="py-2 px-4 font-bold">#{u.rank}</td>
                 <td className="py-2 px-4">{u.name}</td>
                 <td className="py-2 px-4">{u.totalPoints}</td>
