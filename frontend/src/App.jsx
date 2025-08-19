@@ -15,7 +15,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-orange-100 to-yellow-50 p-6">
       <h1 className="text-3xl md:text-4xl font-bold text-center text-orange-600 mb-6">
-        Weekly Contribution Ranking 🏆
+        Leaderboard 🏆
       </h1>
 
       <div className="max-w-4xl mx-auto flex flex-col items-center gap-4 bg-white p-6 rounded-2xl shadow-lg mb-8">
